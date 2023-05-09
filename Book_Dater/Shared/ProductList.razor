@@ -1,0 +1,42 @@
+﻿<ul class="list-unstyled">
+    @foreach (var product in products)
+    {
+        <li class="media my-3" style="display: flex;">
+            <div class="media-img-wrapper">
+                <a href="/product/@product.Id">
+                    <img class="media-img" src="@product.Image" alt="@product.Title" style="width:200px; height:300px;" />
+                </a>
+            </div>
+            <div class="media-body">
+                <a href="/product/@product.Id">
+                    <h4 class="mb-0">@product.Title</h4>
+                </a>
+                <p>@product.Description</p>
+                <h5 class="price">
+                    $@product.Price
+                </h5>
+            </div>
+        </li>
+    }
+</ul>
+
+@code {
+    List<Product> products = new List<Product> {
+        new Product {
+            Id = 1,
+            CategoryId = 1,
+            Title = "Silent Patient",
+            Description = "The Silent Patient is a shocking psychological thriller of a woman’s act of violence against her husband—and of the therapist obsessed with uncovering her motive.",
+            Image = "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1668782119i/40097951.jpg",
+            Price = 12.99m,
+        },
+        new Product {
+            Id = 2,
+            CategoryId = 2,
+            Title = "Tender Is The Flesh",
+            Description = "Working at the local processing plant, Marcos is in the business of slaughtering humans —though no one calls them that anymore. Then governments initiated the “Transition.” Now, eating human meat—“special meat”—is legal. Then one day he’s given a gift: a live specimen of the finest quality.Though he’s aware that any form of personal contact is forbidden on pain of death, little by little he starts to treat her like a human being. And soon, he becomes tortured by what has been lost—and what might still be saved.",
+            Image = "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1594563107i/49090884.jpg",
+            Price = 13.66m,
+        },
+    };
+}
